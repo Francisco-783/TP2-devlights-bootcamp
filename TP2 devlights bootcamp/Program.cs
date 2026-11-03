@@ -1,3 +1,6 @@
+using TP2_devlights_bootcamp.Repositories;
+using TP2_devlights_bootcamp.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -5,6 +8,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
+
+// Inyección de dependencias - Capa de Datos
+builder.Services.AddScoped<IProductoRepository, ProductoRepositoryInMemory>();
+
+// Inyección de dependencias - Capa de Negocio
+builder.Services.AddScoped<IProductoService, ProductoService>();
 
 var app = builder.Build();
 

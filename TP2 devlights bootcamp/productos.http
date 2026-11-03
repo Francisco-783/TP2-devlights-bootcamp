@@ -1,0 +1,64 @@
+### Variables
+@baseUrl = http://localhost:5000/api/productos
+
+### GET - Obtener todos los productos
+GET {{baseUrl}}
+
+### POST - Crear un nuevo producto
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "nombre": "Laptop Dell XPS 13",
+  "precio": 1299.99,
+  "categoria": "Electrónica"
+}
+
+### POST - Crear otro producto
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "nombre": "Mouse Logitech MX Master",
+  "precio": 99.99,
+  "categoria": "Accesorios"
+}
+
+### GET - Obtener producto por ID
+GET {{baseUrl}}/1
+
+### PUT - Actualizar producto
+PUT {{baseUrl}}/1
+Content-Type: application/json
+
+{
+  "nombre": "Laptop Dell XPS 15",
+  "precio": 1599.99,
+  "categoria": "Electrónica"
+}
+
+### DELETE - Eliminar producto
+DELETE {{baseUrl}}/1
+
+### GET - Obtener producto no existente
+GET {{baseUrl}}/999
+
+### POST - Crear producto con validación fallida (nombre muy corto)
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "nombre": "PC",
+  "precio": 500,
+  "categoria": "Electrónica"
+}
+
+### POST - Crear producto con precio inválido
+POST {{baseUrl}}
+Content-Type: application/json
+
+{
+  "nombre": "Monitor LG UltraWide",
+  "precio": -100,
+  "categoria": "Electrónica"
+}
